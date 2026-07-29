@@ -103,3 +103,18 @@ color:rgba(255,255,255,.55);
 .optionInput{
 margin-bottom:14px;
   }
+.weightItem{
+margin-bottom:22px;
+}
+
+.weightItem p{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+font-weight:600;
+}
+
+.weightSlider{
+width:100%;
+accent-color:#6d7cff;
+  }
