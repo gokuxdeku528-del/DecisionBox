@@ -58,8 +58,79 @@ alert("Please enter your decision.");
 return;
 }
 
-alert("Decision Saved:\\n\\n"+decision);
-
+showOptionsScreen(decision);
 });
 
 }
+function showOptionsScreen(decision){
+
+app.innerHTML=`
+
+<div class="screen">
+
+<h1>Your Options</h1>
+
+<p class="subtitle">${decision}</p>
+
+<div id="optionsBox">
+
+<input class="optionInput" placeholder="Option 1">
+
+<input class="optionInput" placeholder="Option 2">
+
+</div>
+
+<button id="addOption">
++ Add Option
+</button>
+
+<br><br>
+
+<button id="nextBtn">
+Next
+</button>
+
+</div>
+
+`;
+
+document.getElementById("addOption").onclick=()=>{
+
+const input=document.createElement("input");
+
+input.className="optionInput";
+
+input.placeholder="Another Option";
+
+document
+.getElementById("optionsBox")
+.appendChild(input);
+
+};
+
+document.getElementById("nextBtn").onclick=()=>{
+
+const options=[...document.querySelectorAll(".optionInput")]
+
+.map(i=>i.value.trim())
+
+.filter(Boolean);
+
+if(options.length<2){
+
+alert("Add at least 2 options.");
+
+return;
+
+}
+
+alert(
+"Decision:\\n"+
+decision+
+"\\n\\nOptions:\\n"+
+options.join("\\n")
+);
+
+};
+
+    }
